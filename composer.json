@@ -1,0 +1,15 @@
+{
+    "name": "shams/simple",
+    "autoload": {
+        "psr-4": {
+            "Shams\\Simple\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Shams Pathan",
+            "email": "shams@bitmascot.com"
+        }
+    ],
+    "require": {}
+}

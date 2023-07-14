@@ -1,6 +1,6 @@
 <?php
 
-namespace middleware;
+namespace Shams\Simple\middleware;
 
 class AuthMiddleware
 {
@@ -10,9 +10,9 @@ class AuthMiddleware
         session_start();
     }
 
-    public function authCheck()
+    public function authCheck(): bool | Object
     {
-        return $_SESSION('user') ? count(array_keys((array)$_SESSION('user'))) : false;
+        return $_SESSION['user'] ?? false;
     }
 
     public function __destruct()
