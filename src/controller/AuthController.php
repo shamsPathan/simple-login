@@ -1,12 +1,12 @@
 <?php
 
-namespace Shams\Simple\controller;
+namespace Shams\Simple\Controller;
 
+use Shams\Simple\entity\User;
+use Shams\Simple\model\UserModel;
 
 class AuthController
 {
-
-    private $salt = "shamsPathan";
 
     function __construct()
     {
@@ -19,10 +19,17 @@ class AuthController
 
     function register(string $email, string $password)
     {
+
         // hash password
         $password = password_hash($password, PASSWORD_DEFAULT);
         // save hash password ad email to user model
-        
+        $user = new User();
+        $user->email = $email;
+        $user->password = $password;
+
+        $model = new UserModel();
+
+        return $model->save($user);
     }
 
     function __destruct()

@@ -1,4 +1,5 @@
 <?php
+require 'vendor/autoload.php';
 
 $type = filter_var($_POST['submit'] ?? "", FILTER_SANITIZE_STRING);
 
