@@ -13,11 +13,24 @@ class AuthController
         session_start();
     }
 
-    function login(string $email, string $password)
+    function login(string $email, string $password): bool
     {
+        // get user from database
+        $userModel = new UserModel();
+        $user  = $userModel->findByEmail($email);
+
+        if (!$user) return false;
+
+        if (password_verify($password, $user->password)) {
+            $user->password = null;
+            $_SESSION['user'] = $user;
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    function register(string $email, string $password)
+    function register(string $email, string $password): bool
     {
 
         // hash password
@@ -34,6 +47,6 @@ class AuthController
 
     function __destruct()
     {
-        session_destroy();
+        // session_destroy();
     }
 }

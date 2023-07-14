@@ -17,6 +17,6 @@ class AuthMiddleware
 
     public function __destruct()
     {
-        session_destroy();
+        // session_destroy();
     }
 }

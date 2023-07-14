@@ -20,5 +20,5 @@ $middleware = new AuthMiddleware();
 if ($middleware->authCheck()) {
     include("src/view/home.html");
 } else {
-    include("src/view/register.html");
+    include("src/view/login.html");
 }

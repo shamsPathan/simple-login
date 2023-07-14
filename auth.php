@@ -7,8 +7,12 @@ use Shams\Simple\controller\AuthController;
 
 switch ($type) {
     case "login":
+        $email = filter_var($_POST['email'] ?? "", FILTER_SANITIZE_EMAIL);
+        $password = filter_var($_POST['password'] ?? "", FILTER_SANITIZE_STRING);
 
-        break;
+        $auth = new AuthController();
+        $auth->login($email, $password);
+        return header('Location: /');
 
     case "register":
         $email = filter_var($_POST['email'] ?? "", FILTER_SANITIZE_EMAIL);
