@@ -13,6 +13,7 @@ switch ($type) {
         $auth = new AuthController();
         $auth->login($email, $password);
         return header('Location: /');
+    
 
     case "register":
         $email = filter_var($_POST['email'] ?? "", FILTER_SANITIZE_EMAIL);

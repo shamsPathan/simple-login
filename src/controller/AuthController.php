@@ -30,6 +30,13 @@ class AuthController
         }
     }
 
+
+    function logout(): bool
+    {
+            $_SESSION['user'] = null;
+            return true;
+    }
+
     function register(string $email, string $password): bool
     {
 
