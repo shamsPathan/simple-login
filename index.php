@@ -22,6 +22,9 @@ if ($middleware->authCheck()) {
             $auth = new AuthController();
             $auth->logout();
             return header('Location: /');
+        default:
+            include("src/view/404.html");
+            die();
         
     }
 } else {
@@ -38,6 +41,8 @@ if ($middleware->authCheck()) {
         case "/logout":
             $auth = new AuthController();
             $auth->logout();
+            return header('Location: /');
+        default:
             return header('Location: /');
         
     }
