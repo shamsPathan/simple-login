@@ -2,6 +2,7 @@
     "name": "shams/simple",
     "autoload": {
         "psr-4": {
+            "Shams\\Simple\\Core\\Model\\":"src/Core/Model/",
             "Shams\\Simple\\": "src/"
         }
     },

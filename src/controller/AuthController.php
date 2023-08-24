@@ -1,6 +1,6 @@
 <?php
 
-namespace Shams\Simple\Controller;
+namespace Shams\Simple\controller;
 
 use Shams\Simple\entity\User;
 use Shams\Simple\model\UserModel;

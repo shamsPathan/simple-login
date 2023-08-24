@@ -2,35 +2,17 @@
 
 namespace Shams\Simple\model;
 
+use Shams\Simple\Core\Model\DB;
+
 use Shams\Simple\entity\User;
 
-class UserModel
+class UserModel extends DB
 {
-    private $user;
-
-    private $database = "simple-login";
-    private $db_host = "127.0.0.1";
-    private $db_user = "root";
-    private $db_password = "sz1";
-
-    private $db = null;
+    protected $user;
 
     function __construct()
     {
-
-        try {
-            $conn = new \PDO(
-                "mysql:host=$this->db_host;dbname=$this->database",
-                $this->db_user,
-                $this->db_password
-            );
-            // set the PDO error mode to exception
-            $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-            $this->db = $conn;
-        } catch (\PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
-            die();
-        }
+        parent::__construct();
     }
 
     function save(User $user): bool
